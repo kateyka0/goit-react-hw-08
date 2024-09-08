@@ -1,0 +1,7 @@
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid black;
+}
