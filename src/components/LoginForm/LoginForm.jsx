@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
 import Error from "../Error/Error";
-
+import { useState } from "react";
 import { login } from "../../redux/auth/operations";
 import { selectError } from "../../redux/auth/selectors";
-
+import { useNavigate } from "react-router-dom";
 import css from "./LoginForm.module.css";
 
 const validationParams = Yup.object().shape({
@@ -17,17 +17,20 @@ const validationParams = Yup.object().shape({
   email: Yup.string().email("Enter a valid email!").required("Required"),
 });
 
-function LoginForm() {
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const error = useSelector(selectError);
 
-  const initialValues = {
-    email: "",
-    password: "",
-  };
-
   const handleSubmit = (values, actions) => {
-    dispatch(login(values));
+    dispatch(login(values)).then(() => {
+      navigate('/contacts');
+    });
     actions.resetForm();
   };
 
@@ -42,9 +45,9 @@ function LoginForm() {
           <span className={css.label}>Email</span>
           <Field
             className={css.input}
-            type="text"
+            type="email"
             name="email"
-            placeholder="across@mail.com"
+            placeholder="Email"
           />
           <ErrorMessage className={css.message} name="email" component="span" />
         </label>
@@ -54,7 +57,7 @@ function LoginForm() {
             className={css.input}
             type="password"
             name="password"
-            placeholder="examplepwd12345"
+            placeholder="Password"
           />
           <ErrorMessage
             className={css.message}
@@ -66,10 +69,10 @@ function LoginForm() {
         <button className={css.logInBtn} type="submit">
           Log In
         </button>
-        {error && <Error />}
+        {error && <Error />} {/* Ensure <Error /> is correctly defined */}
       </Form>
     </Formik>
   );
-}
+};
 
 export default LoginForm;
