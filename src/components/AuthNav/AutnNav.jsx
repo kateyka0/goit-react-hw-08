@@ -6,7 +6,7 @@ import { buildLinkClass } from "../Navigation/Navigation";
 const AuthNav = () => {
   return (
     <div className={css.navigation}>
-      <NavLink to="/register" className={buildLinkClass}>
+      <NavLink to="/register" className={buildLinkClass} >
         Registration
       </NavLink>
       <NavLink to="/login" className={buildLinkClass}>

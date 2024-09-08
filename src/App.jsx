@@ -9,7 +9,7 @@ const RegistrationPage = lazy(() => import("./pages/RagistrationPage"));
 
 import "./App.css";
 
-import { selectError, selectLoading } from "./redux/contacts/contactsSlice";
+import { selectError, selectLoading } from "./redux/contacts/slice";
 import Layout from "/src/Layout";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUser } from "./redux/auth/operations";
