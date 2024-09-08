@@ -8,5 +8,6 @@
 }
 
 .active {
-  color: rgb(88, 228, 83);
+  color: rgb(214, 162, 212);
+  border: 1px solid #ccc
 }

@@ -7,6 +7,21 @@
   gap: 24px;
 }
 
-.active {
-  color: rgb(101, 248, 91);
+.buildLinkClass{
+color: rgb(138, 47, 132);
+  margin: auto;
+  padding: 2px;
+  border: 1px solid #e6d2d2;
+cursor: pointer;
+  border-radius: 5px;
+  background-color: #e6d2d2;
+}
+.buildLinkClass:hover {
+  color: rgb(220, 198, 218);
+  margin: auto;
+  padding: 2px;
+  border: 1px solid #85174a;
+cursor: pointer;
+  border-radius: 5px;
+  background-color: #85174a;
 }

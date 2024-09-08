@@ -14,7 +14,11 @@ h6,
 p {
   margin: 0;
 }
-
+a{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(3, 2, 0);
+}
 ul,
 ol {
   margin: 0;

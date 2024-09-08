@@ -69,7 +69,7 @@ export const LoginForm = () => {
         <button className={css.logInBtn} type="submit">
           Log In
         </button>
-        {error && <Error />} {/* Ensure <Error /> is correctly defined */}
+        {error && <Error />} 
       </Form>
     </Formik>
   );

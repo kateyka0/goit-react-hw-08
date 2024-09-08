@@ -33,7 +33,12 @@
   background-color: #ffd1d1;
 }
 .logInBtn {
-  display: block;
-  margin: 0 auto;
-  border: 1px solid grey;
+  margin: auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+cursor: pointer;
+  border-radius: 5px;
+}
+.logInBtn:hover{
+   border: 1px solid #777070 ;
 }

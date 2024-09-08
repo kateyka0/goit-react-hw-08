@@ -15,12 +15,12 @@ const Navigation = () => {
 
   return (
     <nav className={css.navigation}>
-      <NavLink to="/" className={buildLinkClass}>
+      <NavLink to="/" className={css.buildLinkClass}>
         Home
       </NavLink>
 
       {isLoggedIn && (
-        <NavLink to="/contacts" className={buildLinkClass}>
+        <NavLink to="/contacts" className={css.buildLinkClass}>
           Contacts
         </NavLink>
       )}

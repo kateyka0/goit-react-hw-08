@@ -16,7 +16,7 @@ const UserMenu = () => {
         <p>{user.email}</p>
       </div>
 
-      <button
+      <button className={css.btn}
         type="button"
         onClick={() => {
           dispatch(logout());

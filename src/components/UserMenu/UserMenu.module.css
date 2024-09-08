@@ -1,4 +1,23 @@
 .wrapper {
   display: flex;
-  gap: 8px;
+  gap: 30px;
+}
+.btn{
+  color: rgb(183, 74, 176);
+  margin: auto;
+  padding: 2px;
+ border: none;
+cursor: pointer;
+  background-color: white;
+font-size: 20px;
+}
+.btn:hover{
+  color: rgb(232, 215, 231);
+  margin: auto;
+  padding: 2px;
+  border: 1px solid #cf8686;
+cursor: pointer;
+  border-radius: 5px;
+  background-color: #cf8686;
+
 }
