@@ -1,12 +1,12 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { addContact, deleteContact, fetchContacts } from "./operations";
+import { addContact, deleteContact, fetchContacts, logOut } from "./operations"; // Переконайтесь, що logOut імпортовано
 import { selectNameFilter } from "../filters/slice";
 
 const initialState = {
   contacts: {
-  items: [],
-  loading: false,
-  error: null,  
+    items: [],
+    loading: false,
+    error: null,
   }
 };
 
@@ -52,6 +52,10 @@ const slice = createSlice({
       .addCase(deleteContact.rejected, (state) => {
         state.contacts.loading = false;
         state.contacts.error = true;
+      })
+      // Додаємо обробку для logOut
+      .addCase(logOut.fulfilled, (state) => {
+        state.contacts = initialState.contacts;
       });
   },
 });
@@ -64,7 +68,7 @@ export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filterValue) => {
     return contacts
-      .filter(contact => contact && contact.name && 
+      .filter(contact => contact && contact.name &&
         contact.name.toLowerCase().includes(filterValue.toLowerCase()));
   }
 );

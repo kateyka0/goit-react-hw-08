@@ -1,7 +1,8 @@
+// src/redux/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import { contactsReducer } from "./contacts/slice";
 import { filtersReducer } from "./filters/slice";
-import { authReducer } from "./auth/slice";
+import authReducer from "./auth/slice"; // Експорт за замовчуванням, тому без фігурних дужок
 import {
   persistStore,
   persistReducer,
@@ -14,13 +15,15 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+// Конфігурація для персистентності auth стану
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token'], // Зберігаємо лише токен у localStorage
 };
 
- export  const store = configureStore({
+// Створення Redux store з підтримкою персистентності
+export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
@@ -35,5 +38,6 @@ const authPersistConfig = {
 });
 
 export const persistor = persistStore(store);
+
 export default store;
 
